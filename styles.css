@@ -1,0 +1,163 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #131722;
+  --subtle: #59627a;
+  --accent: #2376f4;
+  --accent-text: #ffffff;
+  --border: #d6deed;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e121c;
+  --card: #171d2b;
+  --text: #f4f7ff;
+  --subtle: #a6b0cc;
+  --accent: #4f9cff;
+  --accent-text: #071329;
+  --border: #28324a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  width: min(960px, 100% - 2rem);
+  margin: 1rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+p {
+  color: var(--subtle);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.form-grid {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--subtle);
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.primary-btn,
+.icon-btn,
+.text-btn {
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  margin-top: 0.25rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  font-size: 1.15rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.text-btn {
+  background: transparent;
+  color: var(--accent);
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+}
+
+.result-list,
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.result-list li,
+.history-list li {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-meta {
+  color: var(--subtle);
+  font-size: 0.9rem;
+}
+
+.history-empty {
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+  }
+
+  .primary-btn {
+    grid-column: span 3;
+  }
+}
