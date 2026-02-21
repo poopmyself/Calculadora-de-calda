@@ -49,6 +49,8 @@ const renderHistory = () => {
       <div>
         <strong>${numberFmt.format(entry.totalVolume)} L de calda</strong>
         <p class="history-meta">${entry.area} ha • ${entry.volumeHa} L/ha • Dose ${entry.productDose} L/ha • Produto ${numberFmt.format(entry.totalProduct)} L</p>
+        <strong>${numberFmt.format(entry.totalVolume)} L</strong>
+        <p class="history-meta">${entry.area} ha • ${entry.volumeHa} L/ha • Depósito ${entry.tank} L</p>
       </div>
       <span class="history-meta">${formatDate(entry.date)}</span>
     `;
@@ -131,6 +133,12 @@ const initMap = () => {
 
   map.on(L.Draw.Event.EDITED, recalculateArea);
   map.on(L.Draw.Event.DELETED, recalculateArea);
+const calculate = ({ area, volumeHa, tank }) => {
+  const totalVolume = area * volumeHa;
+  const tankLoads = totalVolume / tank;
+  const areaPerTank = tank / volumeHa;
+
+  return { totalVolume, tankLoads, areaPerTank };
 };
 
 form.addEventListener('submit', (event) => {
@@ -146,6 +154,15 @@ form.addEventListener('submit', (event) => {
   }
 
   const result = calculate({ area, volumeHa, productDose, tank });
+  const area = Number(document.getElementById('area').value);
+  const volumeHa = Number(document.getElementById('volumeHa').value);
+  const tank = Number(document.getElementById('tank').value);
+
+  if (!area || !volumeHa || !tank) {
+    return;
+  }
+
+  const result = calculate({ area, volumeHa, tank });
 
   totalVolumeEl.textContent = `${numberFmt.format(result.totalVolume)} L`;
   tankLoadsEl.textContent = numberFmt.format(result.tankLoads);

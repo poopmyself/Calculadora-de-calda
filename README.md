@@ -1,6 +1,7 @@
 # Calculadora de Calda
 
 Aplicação web para calcular o volume de calda para pulverização.
+Aplicação web simples para calcular o volume de calda para pulverização.
 
 ## Funcionalidades
 
@@ -13,6 +14,9 @@ Aplicação web para calcular o volume de calda para pulverização.
 - Dark mode / light mode
 - Interface responsiva para telemóvel
 - Campos com descrições de ajuda para reduzir dúvidas no preenchimento
+- Histórico local dos últimos 10 cálculos (guardado no browser)
+- Dark mode / light mode
+- Interface responsiva para telemóvel
 
 ## Como usar
 
@@ -29,3 +33,10 @@ Aplicação web para calcular o volume de calda para pulverização.
 O histórico é guardado em `localStorage`, por isso fica disponível no mesmo browser/dispositivo.
 
 > Nota: o mapa usa bibliotecas por CDN (Leaflet, Leaflet Draw e Turf). É necessária ligação à internet para carregar o mapa.
+2. Preencha:
+   - Área a pulverizar (ha)
+   - Volume por hectare (L/ha)
+   - Capacidade do depósito (L)
+3. Clique em **Calcular**.
+
+O histórico é guardado em `localStorage`, por isso fica disponível no mesmo browser/dispositivo.
