@@ -36,9 +36,7 @@ body {
   gap: 1rem;
 }
 
-.app__header,
-.section-head,
-.history-head {
+.app__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -60,19 +58,6 @@ p {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1rem;
-}
-
-.map {
-  height: 320px;
-  margin-top: 0.85rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.map-area {
-  margin-top: 0.7rem;
-  font-weight: 600;
 }
 
 .form-grid {
@@ -131,11 +116,6 @@ input {
   font-weight: 600;
 }
 
-.text-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
 .result-list,
 .history-list {
   list-style: none;
@@ -154,6 +134,12 @@ input {
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
+}
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .history-meta {
