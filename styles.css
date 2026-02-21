@@ -36,6 +36,9 @@ body {
   gap: 1rem;
 }
 
+.app__header,
+.section-head,
+.history-head {
 .app__header {
   display: flex;
   justify-content: space-between;
@@ -60,6 +63,19 @@ p {
   padding: 1rem;
 }
 
+.map {
+  height: 320px;
+  margin-top: 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.map-area {
+  margin-top: 0.7rem;
+  font-weight: 600;
+}
+
 .form-grid {
   margin-top: 0.85rem;
   display: grid;
@@ -71,6 +87,12 @@ label {
   gap: 0.35rem;
   color: var(--subtle);
   font-size: 0.95rem;
+}
+
+.help-text {
+  color: var(--subtle);
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 input {
@@ -116,6 +138,11 @@ input {
   font-weight: 600;
 }
 
+.text-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .result-list,
 .history-list {
   list-style: none;
@@ -153,11 +180,13 @@ input {
 
 @media (min-width: 720px) {
   .form-grid {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(3, 1fr);
     align-items: end;
   }
 
   .primary-btn {
+    grid-column: span 4;
     grid-column: span 3;
   }
 }
